@@ -226,7 +226,7 @@ output wire output_valid
     
    
                      
-    //量化调制步长  
+    //閲忓寲璋冨埗姝ラ暱  
     parameter signed M_step = 14417920;  // M_step = 55  * 64
     parameter signed rad_step = 110 ;   // 1.7  = 110 / 64
  
@@ -234,7 +234,7 @@ output wire output_valid
     parameter signed p = 36'd8589934592;   //8 * 2 ^ 30                                                                                            
     //parameter signed q = 1073741824 ;   //2 ^ 30
     parameter signed q = 25'd8196 ; //8*1024*4   
-    //密钥
+    //瀵嗛挜
     reg [6:1] img_ins_key[64:1];
          
          
@@ -859,7 +859,7 @@ output wire output_valid
             	 		  //radm2complex 6
             	 		  rad_1_2_5 <=  rad_buf_sig ? rad_11_buf2 : rad_11_buf1 ;  
             	 		  
-            	      //插入信息，具体处理在step1中是第五个步骤，信息插入的输入在第五步第一拍插入，在第二拍嵌入时被使用
+            	      //鎻掑叆淇℃伅锛屽叿浣撳鐞嗗湪step1涓槸绗簲涓楠わ紝淇℃伅鎻掑叆鐨勮緭鍏ュ湪绗簲姝ョ涓�鎷嶆彃鍏ワ紝鍦ㄧ浜屾媿宓屽叆鏃惰浣跨敤
                  
                     ins_M_t  [1] <= ins_M  [1]; 
                     ins_M_t  [2] <= ins_M  [2]; 
@@ -875,7 +875,7 @@ output wire output_valid
             	 		  //radm2complex 6
             	 		  rad_1_2_5 <=  rad_buf_sig ? rad_1_buf2 : rad_1_buf1;  
             	 		  
-            	 		  //插入信息，具体处理在step1中是第五个步骤，信息插入的输入在第五步第一拍插入，在第二拍嵌入时被使用
+            	 		  //鎻掑叆淇℃伅锛屽叿浣撳鐞嗗湪step1涓槸绗簲涓楠わ紝淇℃伅鎻掑叆鐨勮緭鍏ュ湪绗簲姝ョ涓�鎷嶆彃鍏ワ紝鍦ㄧ浜屾媿宓屽叆鏃惰浣跨敤
                     ins_M_t  [1] <= ins_M  [1]; 
                   end 
               end
@@ -998,7 +998,7 @@ output wire output_valid
                       M_50_temp   <= dft_real_clo[50]/cos_temp1 ;
                       
              		      //QIM 5    
-             	      M_ins_11_temp   <= M_11    / M_step     * 220  +     mod_Mstep[1][1]  * 220  + 88 ;      //暂时采用floor
+             	      M_ins_11_temp   <= M_11    / M_step     * 220  +     mod_Mstep[1][1]  * 220  + 88 ;      //鏆傛椂閲囩敤floor
                       M_ins_18_temp   <= M_18    / M_step     * 220  +     mod_Mstep[2][1]  * 220  + 88 ;
                       M_ins_50_temp   <= M_50    / M_step     * 220  +     mod_Mstep[3][1]  * 220  + 88 ;
                       M_ins_59_temp   <= M_59    / M_step     * 220  +     mod_Mstep[4][1]  * 220  + 88 ;
@@ -1026,7 +1026,7 @@ output wire output_valid
                        
                     end else   
                       //QIM 5    
-             	        M_ins_1_temp   <= (M_1    / (2 * M_step)     * 440       + mod_Mstep[1][1]  * 440) > 128*64+440-1 ? M_1    / (2 * M_step)     * 440       + mod_Mstep[1][1]  * 440 - 880  :   M_1    / (2 * M_step)     * 440       + mod_Mstep[1][1]  * 440  ;      //暂时采用floor
+             	        M_ins_1_temp   <= (M_1    / (2 * M_step)     * 440       + mod_Mstep[1][1]  * 440) > 128*64+440-1 ? M_1    / (2 * M_step)     * 440       + mod_Mstep[1][1]  * 440 - 880  :   M_1    / (2 * M_step)     * 440       + mod_Mstep[1][1]  * 440  ;      //鏆傛椂閲囩敤floor
               end
                     
               7 : begin      
